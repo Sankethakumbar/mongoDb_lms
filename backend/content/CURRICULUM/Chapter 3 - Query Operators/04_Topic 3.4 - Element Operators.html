@@ -1,0 +1,53 @@
+<h2>📗 Topic 3.4: Element Operators</h2>
+
+<h3>📌 Definition</h3>
+<p>Element operators are used to check <b>field existence or data type</b> in a document.</p>
+
+<h3>📌 Operators Table</h3>
+<table class="data-table">
+    <thead><tr><th>Operator</th><th>Meaning</th></tr></thead>
+    <tbody>
+        <tr><td><code>$exists</code></td><td>Check if field exists or not</td></tr>
+        <tr><td><code>$type</code></td><td>Check the data type of a field</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Examples</h3>
+
+<h4>🔹 Check Field Exists</h4>
+<pre><code>db.students.find({
+  marks: { $exists: true }
+})</code></pre>
+<p>👉 Returns only documents that <b>have the marks field</b>.</p>
+
+<h4>🔹 Check Field Does NOT Exist</h4>
+<pre><code>db.students.find({
+  marks: { $exists: false }
+})</code></pre>
+
+<h4>🔹 Check Data Type</h4>
+<pre><code>db.students.find({
+  age: { $type: "int" }
+})</code></pre>
+<p>👉 Returns documents where <code>age</code> is stored as an integer.</p>
+
+<h3>📌 Common Type Values</h3>
+<table class="data-table">
+    <thead><tr><th>Type String</th><th>Meaning</th></tr></thead>
+    <tbody>
+        <tr><td><code>"string"</code></td><td>Text value</td></tr>
+        <tr><td><code>"int"</code></td><td>Integer number</td></tr>
+        <tr><td><code>"double"</code></td><td>Decimal number</td></tr>
+        <tr><td><code>"bool"</code></td><td>True / False</td></tr>
+        <tr><td><code>"array"</code></td><td>Array value</td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Topic 3.4 Summary</h4>
+    <ul>
+        <li>Used to check <b>structure of data</b></li>
+        <li><code>$exists</code> — check if field is present</li>
+        <li><code>$type</code> — check the field's data type</li>
+    </ul>
+</div>

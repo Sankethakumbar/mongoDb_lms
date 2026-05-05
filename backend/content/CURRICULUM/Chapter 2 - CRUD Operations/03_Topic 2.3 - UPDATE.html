@@ -1,0 +1,54 @@
+<h2>📗 Topic 2.3: UPDATE (Modify Data)</h2>
+
+<h3>📌 MongoDB UPDATE Statement</h3>
+<p>The <b>update</b> operation is used to <b>modify existing documents</b> in a collection.</p>
+
+<h3>📌 Update Commands</h3>
+<table class="data-table">
+    <thead><tr><th>Command</th><th>Description</th></tr></thead>
+    <tbody>
+        <tr><td><code>updateOne()</code></td><td>Update one document</td></tr>
+        <tr><td><code>updateMany()</code></td><td>Update multiple documents</td></tr>
+        <tr><td><code>$set</code></td><td>Update specific fields safely</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Syntax</h3>
+<pre><code>db.collection.updateOne(filter, update)</code></pre>
+<pre><code>db.collection.updateMany(filter, update)</code></pre>
+
+<h3>📌 Update One Example</h3>
+<pre><code>db.students.updateOne(
+  { name: "Diana Prince" },
+  { $set: { marks: 70 } }
+)</code></pre>
+
+<h3>📌 Update Many Example</h3>
+<pre><code>db.students.updateMany(
+  { department: "Computer Science" },
+  { $set: { status: "active" } }
+)</code></pre>
+
+<h3>📌 Important Note ⚠️</h3>
+<div class="code-block">
+    <p>Without <code>$set</code>, the <b>whole document gets replaced</b> ❗</p>
+    <p>Always use <code>$set</code> to safely update specific fields.</p>
+</div>
+
+<h3>📌 SQL vs MongoDB</h3>
+<table class="data-table">
+    <thead><tr><th>SQL</th><th>MongoDB</th></tr></thead>
+    <tbody>
+        <tr><td>UPDATE students SET marks=70</td><td><code>updateOne()</code></td></tr>
+        <tr><td>UPDATE multiple rows</td><td><code>updateMany()</code></td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Topic 2.3 Summary</h4>
+    <ul>
+        <li>UPDATE = Modify data</li>
+        <li>Always use <b>$set</b> to update safely</li>
+        <li>Use <b>updateOne() / updateMany()</b></li>
+    </ul>
+</div>

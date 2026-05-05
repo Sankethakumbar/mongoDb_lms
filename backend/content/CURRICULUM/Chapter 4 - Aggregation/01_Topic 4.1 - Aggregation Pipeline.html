@@ -1,0 +1,34 @@
+<h2>📗 Topic 4.1: Aggregation Pipeline</h2>
+
+<h3>📌 What is Aggregation?</h3>
+<p>Aggregation is used to <b>process and analyze data</b> in MongoDB. It is similar to <b>GROUP BY in SQL</b>.</p>
+
+<h3>📌 Why use Aggregation?</h3>
+<ul>
+    <li>Calculate totals</li>
+    <li>Find averages</li>
+    <li>Group data</li>
+    <li>Analyze large datasets</li>
+</ul>
+
+<h3>📌 Definition</h3>
+<p>Aggregation works using a <b>pipeline of stages</b>. Data flows step-by-step and gets transformed at each stage.</p>
+
+<h3>📌 Syntax</h3>
+<pre><code>db.collection.aggregate([
+  { $stage1: { ... } },
+  { $stage2: { ... } },
+  ...
+])</code></pre>
+
+<h3>📌 Basic Visualization</h3>
+<pre><code>[ Data ] → $match → $group → $sort → $limit → [ Result ]</code></pre>
+
+<div class="summary-card">
+    <h4>🎯 Topic 4.1 Summary</h4>
+    <ul>
+        <li>Aggregation = <b>Analyze + Process Data</b></li>
+        <li>Uses a <b>pipeline of stages</b></li>
+        <li>Similar to GROUP BY in SQL</li>
+    </ul>
+</div>

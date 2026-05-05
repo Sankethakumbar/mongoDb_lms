@@ -1,0 +1,68 @@
+<h2>📗 Topic 4.3: Aggregation Operators</h2>
+
+<h3>📌 Definition</h3>
+<p>Aggregation operators are used <b>inside $group</b> to calculate values across grouped documents.</p>
+
+<h3>📌 Operators Table</h3>
+<table class="data-table">
+    <thead><tr><th>Operator</th><th>Meaning</th><th>SQL Equivalent</th></tr></thead>
+    <tbody>
+        <tr><td><code>$sum</code></td><td>Total / Count</td><td>SUM()</td></tr>
+        <tr><td><code>$avg</code></td><td>Average</td><td>AVG()</td></tr>
+        <tr><td><code>$max</code></td><td>Maximum value</td><td>MAX()</td></tr>
+        <tr><td><code>$min</code></td><td>Minimum value</td><td>MIN()</td></tr>
+        <tr><td><code>$count</code></td><td>Count documents</td><td>COUNT()</td></tr>
+        <tr><td><code>$push</code></td><td>Collect into array</td><td>—</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Usage Examples</h3>
+
+<h4>🔹 Sum of Marks</h4>
+<pre><code>db.students.aggregate([
+  {
+    $group: {
+      _id: "$department",
+      totalMarks: { $sum: "$marks" }
+    }
+  }
+])</code></pre>
+
+<h4>🔹 Average Marks</h4>
+<pre><code>db.students.aggregate([
+  {
+    $group: {
+      _id: "$department",
+      avgMarks: { $avg: "$marks" }
+    }
+  }
+])</code></pre>
+
+<h4>🔹 Maximum Marks</h4>
+<pre><code>db.students.aggregate([
+  {
+    $group: {
+      _id: "$department",
+      topScore: { $max: "$marks" }
+    }
+  }
+])</code></pre>
+
+<h4>🔹 Count Students Per Department</h4>
+<pre><code>db.students.aggregate([
+  {
+    $group: {
+      _id: "$department",
+      studentCount: { $sum: 1 }
+    }
+  }
+])</code></pre>
+
+<div class="summary-card">
+    <h4>🎯 Topic 4.3 Summary</h4>
+    <ul>
+        <li>Operators go <b>inside $group</b></li>
+        <li><code>$sum: 1</code> is used to <b>count documents</b></li>
+        <li>Works like SQL aggregate functions</li>
+    </ul>
+</div>

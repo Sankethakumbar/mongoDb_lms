@@ -1,0 +1,21 @@
+# Java
+backend/target/
+backend/*.jar
+backend/*.war
+backend/*.ear
+backend/.mvn/
+backend/mvnw
+backend/mvnw.cmd
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.DS_Store
+
+# Frontend
+frontend/.DS_Store
+
+# Logs
+*.log

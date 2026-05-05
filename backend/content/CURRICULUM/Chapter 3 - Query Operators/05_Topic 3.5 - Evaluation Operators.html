@@ -1,0 +1,65 @@
+<h2>📗 Topic 3.5: Evaluation Operators</h2>
+
+<h3>📌 Definition</h3>
+<p>Evaluation operators are used to <b>search and match text patterns</b> inside field values.</p>
+
+<h3>📌 Operators Table</h3>
+<table class="data-table">
+    <thead><tr><th>Operator</th><th>Meaning</th></tr></thead>
+    <tbody>
+        <tr><td><code>$regex</code></td><td>Pattern matching using regular expressions</td></tr>
+        <tr><td><code>$text</code></td><td>Full text search (requires text index)</td></tr>
+        <tr><td><code>$where</code></td><td>Match using JavaScript expression</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Examples</h3>
+
+<h4>🔹 Names Starting With "D"</h4>
+<pre><code>db.students.find({
+  name: { $regex: "^D" }
+})</code></pre>
+<p>👉 Returns <b>Diana Prince</b> (starts with D)</p>
+
+<h4>🔹 Names Containing "Hunt"</h4>
+<pre><code>db.students.find({
+  name: { $regex: "Hunt" }
+})</code></pre>
+
+<h4>🔹 Case-Insensitive Search</h4>
+<pre><code>db.students.find({
+  name: { $regex: "diana", $options: "i" }
+})</code></pre>
+<p>👉 <code>$options: "i"</code> makes it case-insensitive</p>
+
+<h3>📌 Common Regex Patterns</h3>
+<table class="data-table">
+    <thead><tr><th>Pattern</th><th>Meaning</th></tr></thead>
+    <tbody>
+        <tr><td><code>^D</code></td><td>Starts with D</td></tr>
+        <tr><td><code>e$</code></td><td>Ends with e</td></tr>
+        <tr><td><code>Hunt</code></td><td>Contains "Hunt"</td></tr>
+        <tr><td><code>^[A-Z]</code></td><td>Starts with any capital letter</td></tr>
+    </tbody>
+</table>
+
+<h3>🚀 Chapter 3 Final Summary</h3>
+<table class="data-table">
+    <thead><tr><th>Category</th><th>Operators</th></tr></thead>
+    <tbody>
+        <tr><td><b>Comparison</b></td><td><code>$gt, $lt, $gte, $lte, $eq, $ne</code></td></tr>
+        <tr><td><b>Logical</b></td><td><code>$and, $or, $not, $nor</code></td></tr>
+        <tr><td><b>Array</b></td><td><code>$in, $nin, $all</code></td></tr>
+        <tr><td><b>Element</b></td><td><code>$exists, $type</code></td></tr>
+        <tr><td><b>Evaluation</b></td><td><code>$regex, $text</code></td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Overall Understanding</h4>
+    <ul>
+        <li>Query Operators = <b>WHERE clause in SQL</b></li>
+        <li>Used to <b>filter, match, and search</b> documents</li>
+        <li><code>$regex</code> enables powerful <b>text pattern matching</b></li>
+    </ul>
+</div>

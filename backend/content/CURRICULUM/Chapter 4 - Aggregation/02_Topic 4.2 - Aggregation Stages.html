@@ -1,0 +1,48 @@
+<h2>📗 Topic 4.2: Common Aggregation Stages</h2>
+
+<h3>📌 Stages Table</h3>
+<table class="data-table">
+    <thead><tr><th>Stage</th><th>Meaning</th><th>SQL Equivalent</th></tr></thead>
+    <tbody>
+        <tr><td><code>$match</code></td><td>Filter data</td><td>WHERE</td></tr>
+        <tr><td><code>$group</code></td><td>Group data</td><td>GROUP BY</td></tr>
+        <tr><td><code>$project</code></td><td>Select fields</td><td>SELECT</td></tr>
+        <tr><td><code>$sort</code></td><td>Sort data</td><td>ORDER BY</td></tr>
+        <tr><td><code>$limit</code></td><td>Limit results</td><td>LIMIT</td></tr>
+        <tr><td><code>$skip</code></td><td>Skip records</td><td>OFFSET</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Syntax for Each Stage</h3>
+
+<h4>🔹 $match — Filter</h4>
+<pre><code>{ $match: { condition } }</code></pre>
+
+<h4>🔹 $group — Group</h4>
+<pre><code>{
+  $group: {
+    _id: "$field",
+    result: { operator }
+  }
+}</code></pre>
+
+<h4>🔹 $project — Select Fields</h4>
+<pre><code>{ $project: { field1: 1, field2: 1 } }</code></pre>
+
+<h4>🔹 $sort — Sort Results</h4>
+<pre><code>{ $sort: { field: 1 } }   // 1 = Ascending, -1 = Descending</code></pre>
+
+<h4>🔹 $limit — Limit Count</h4>
+<pre><code>{ $limit: 5 }</code></pre>
+
+<h4>🔹 $skip — Skip Records</h4>
+<pre><code>{ $skip: 10 }</code></pre>
+
+<div class="summary-card">
+    <h4>🎯 Topic 4.2 Summary</h4>
+    <ul>
+        <li>Each stage transforms the data</li>
+        <li>Stages run <b>in order</b> through the pipeline</li>
+        <li>You can combine as many stages as needed</li>
+    </ul>
+</div>

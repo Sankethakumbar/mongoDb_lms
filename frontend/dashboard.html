@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | MongoAcademy</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div class="app-shell">
+        <div class="mobile-overlay" id="mobileOverlay"></div>
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-container">
+                    <div class="logo-leaf">🍃</div>
+                    <div class="logo-text">Mongo<span class="logo-sub">Academy</span></div>
+                </div>
+                <div class="user-info-brief">
+                    <span id="displayUsername">User</span>
+                </div>
+            </div>
+            <div class="mode-selector">
+                <button class="mode-tab active" data-mode="CURRICULUM">
+                    <i class="fa-solid fa-book-open"></i> Curriculum
+                </button>
+                <button class="mode-tab" data-mode="PRACTICE">
+                    <i class="fa-solid fa-code"></i> Practice
+                </button>
+            </div>
+            <div class="sidebar-section">
+                <div class="section-label" id="activeModeLabel">CURRICULUM</div>
+                <nav class="nav-list" id="lessonNav"></nav>
+            </div>
+            <div class="sidebar-footer">
+                <div class="progress-card">
+                    <div class="progress-info">
+                        <span id="currentProgressLabel">Curriculum Progress</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+                <button onclick="AUTH.logout()" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
+            <div class="sidebar-resize" id="sidebarResize"></div>
+        </aside>
+        <main class="viewport">
+            <button id="workspaceToggle" class="workspace-toggle" title="Toggle Editor">
+                <i class="fa-solid fa-code"></i>
+            </button>
+            <section class="content-panel">
+                <div class="content-header">
+                    <button id="mobileMenuToggle" class="mobile-toggle"><i class="fa-solid fa-bars"></i></button>
+                    <h1 id="lessonTitle">Loading...</h1>
+                </div>
+                <div class="content-body prose" id="lessonBody"></div>
+                <div class="content-actions">
+                    <button id="prevBtn" class="btn-nav"><i class="fa-solid fa-arrow-left"></i> Previous</button>
+                    <button id="completeBtn" class="btn-complete">
+                        <i class="fa-solid fa-check-circle"></i> Mark as Completed
+                    </button>
+                    <button id="nextBtn" class="btn-nav">Next <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </section>
+            <div class="panel-resize" id="panelResize"></div>
+            <section class="interaction-panel">
+                <div class="editor-container">
+                    <div class="panel-tabs">
+                        <div class="tab active">Editor</div>
+                    </div>
+                    <div class="editor-workspace">
+                        <textarea id="queryInput" spellcheck="false">db.students.find({})</textarea>
+                    </div>
+                    <div class="editor-actions">
+                        <button id="runBtn" class="btn-glow">RUN QUERY</button>
+                    </div>
+                </div>
+                <div class="terminal-container">
+                    <div class="terminal-header">
+                        <div class="terminal-title">OUTPUT CONSOLE</div>
+                        <button id="clearConsoleBtn" class="clear-console-btn" title="Clear Console">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                    <div class="terminal-body" id="consoleOutput"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/engine.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<h2>📗 Topic 2.4: DELETE (Remove Data)</h2>
+
+<h3>📌 MongoDB DELETE Statement</h3>
+<p>The <b>delete</b> operation is used to <b>remove documents from a collection</b> permanently.</p>
+
+<h3>📌 Delete Commands</h3>
+<table class="data-table">
+    <thead><tr><th>Command</th><th>Description</th></tr></thead>
+    <tbody>
+        <tr><td><code>deleteOne()</code></td><td>Delete one document</td></tr>
+        <tr><td><code>deleteMany()</code></td><td>Delete multiple documents</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Syntax</h3>
+<pre><code>db.collection.deleteOne(filter)</code></pre>
+<pre><code>db.collection.deleteMany(filter)</code></pre>
+
+<h3>📌 Delete One Example</h3>
+<pre><code>db.students.deleteOne({ name: "Diana Prince" })</code></pre>
+
+<h3>📌 Delete Many Example</h3>
+<pre><code>db.students.deleteMany({ marks: { $lt: 60 } })</code></pre>
+
+<h3>📌 SQL vs MongoDB</h3>
+<table class="data-table">
+    <thead><tr><th>SQL</th><th>MongoDB</th></tr></thead>
+    <tbody>
+        <tr><td>DELETE FROM students WHERE name='Diana'</td><td><code>deleteOne()</code></td></tr>
+        <tr><td>DELETE multiple rows</td><td><code>deleteMany()</code></td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Topic 2.4 Summary</h4>
+    <ul>
+        <li>DELETE = Remove data</li>
+        <li>Use <b>deleteOne() / deleteMany()</b></li>
+        <li>Be careful — deletion is <b>permanent</b> ⚠️</li>
+    </ul>
+</div>
+
+<h3>🚀 Chapter 2 Final Summary</h3>
+<table class="data-table">
+    <thead><tr><th>Operation</th><th>MongoDB Command</th></tr></thead>
+    <tbody>
+        <tr><td><b>CREATE</b></td><td><code>insertOne()</code></td></tr>
+        <tr><td><b>READ</b></td><td><code>find()</code></td></tr>
+        <tr><td><b>UPDATE</b></td><td><code>updateOne()</code></td></tr>
+        <tr><td><b>DELETE</b></td><td><code>deleteOne()</code></td></tr>
+    </tbody>
+</table>

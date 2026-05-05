@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | MongoAcademy</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Outfit:wght@600;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div class="auth-overlay">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="logo-leaf">🍃</div>
+                <h1>Welcome Back</h1>
+                <p>Enter your credentials to continue mastery</p>
+            </div>
+            <form id="loginForm" class="auth-form">
+                <div class="input-group">
+                    <label>Username</label>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="Email" required>
+                </div>
+                <button type="submit" class="btn-glow full-width">
+                    <span>GET STARTED</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <div class="auth-separator">OR</div>
+                <button type="button" class="btn-google" onclick="AUTH.googleLogin()">
+                    <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" alt="Google">
+                    Sign in with Google
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="js/theme.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        AUTH.check();
+        document.getElementById('loginForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            AUTH.login(
+                document.getElementById('username').value,
+                document.getElementById('email').value
+            );
+        });
+    </script>
+</body>
+</html>

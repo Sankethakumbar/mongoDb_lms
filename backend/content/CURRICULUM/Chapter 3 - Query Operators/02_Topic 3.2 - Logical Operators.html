@@ -1,0 +1,56 @@
+<h2>📗 Topic 3.2: Logical Operators</h2>
+
+<h3>📌 Definition</h3>
+<p>Logical operators <b>combine multiple conditions</b>, just like AND / OR in SQL.</p>
+
+<h3>📌 Operators Table</h3>
+<table class="data-table">
+    <thead><tr><th>Operator</th><th>Meaning</th></tr></thead>
+    <tbody>
+        <tr><td><code>$and</code></td><td>All conditions must be true</td></tr>
+        <tr><td><code>$or</code></td><td>Any condition can be true</td></tr>
+        <tr><td><code>$not</code></td><td>Negates condition</td></tr>
+        <tr><td><code>$nor</code></td><td>None of the conditions should be true</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Examples</h3>
+
+<h4>🔹 AND</h4>
+<pre><code>db.students.find({
+  $and: [
+    { marks: { $gt: 70 } },
+    { grade: "A" }
+  ]
+})</code></pre>
+
+<h4>🔹 OR</h4>
+<pre><code>db.students.find({
+  $or: [
+    { marks: { $lt: 60 } },
+    { grade: "C" }
+  ]
+})</code></pre>
+
+<h4>🔹 NOT</h4>
+<pre><code>db.students.find({
+  marks: { $not: { $gt: 80 } }
+})</code></pre>
+
+<h3>📌 SQL vs MongoDB</h3>
+<table class="data-table">
+    <thead><tr><th>SQL</th><th>MongoDB</th></tr></thead>
+    <tbody>
+        <tr><td>WHERE A AND B</td><td><code>$and</code></td></tr>
+        <tr><td>WHERE A OR B</td><td><code>$or</code></td></tr>
+        <tr><td>WHERE NOT A</td><td><code>$not</code></td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Topic 3.2 Summary</h4>
+    <ul>
+        <li>Combine multiple conditions</li>
+        <li>Use <code>$and</code>, <code>$or</code>, <code>$not</code></li>
+    </ul>
+</div>

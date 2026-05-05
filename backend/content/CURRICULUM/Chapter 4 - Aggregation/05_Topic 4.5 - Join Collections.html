@@ -1,0 +1,53 @@
+<h2>📗 Topic 4.5: $lookup (Join Collections)</h2>
+
+<h3>📌 What is $lookup?</h3>
+<p>The <code>$lookup</code> stage performs a <b>left outer join</b> to another collection in the same database to filter in documents from the "joined" collection for processing.</p>
+
+<h3>📌 Syntax</h3>
+<pre><code>{
+  $lookup: {
+    from: "collection2",
+    localField: "field1",
+    foreignField: "field2",
+    as: "result"
+  }
+}</code></pre>
+
+<h3>📌 Example</h3>
+<p>Join <code>orders</code> with <code>customers</code> based on the customer ID.</p>
+<pre><code>db.orders.aggregate([
+  {
+    $lookup: {
+      from: "customers",
+      localField: "customer_id",
+      foreignField: "id",
+      as: "customer_details"
+    }
+  }
+])</code></pre>
+
+<h3>📊 SQL vs MongoDB</h3>
+<table class="data-table">
+    <thead><tr><th>SQL</th><th>MongoDB</th></tr></thead>
+    <tbody>
+        <tr><td>WHERE</td><td><code>$match</code></td></tr>
+        <tr><td>GROUP BY</td><td><code>$group</code></td></tr>
+        <tr><td>SELECT</td><td><code>$project</code></td></tr>
+        <tr><td>ORDER BY</td><td><code>$sort</code></td></tr>
+        <tr><td>LIMIT</td><td><code>$limit</code></td></tr>
+        <tr><td>JOIN</td><td><code>$lookup</code></td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Chapter 4 Summary</h4>
+    <ul>
+        <li>Aggregation = <b>Analyze + Process Data</b></li>
+        <li>Uses <b>pipeline stages</b> to transform data step-by-step</li>
+        <li>Very powerful for real-world queries and reporting</li>
+    </ul>
+    
+    <h4>🧠 Final Understanding</h4>
+    <p>👉 Aggregation Flow:</p>
+    <p><code>Data → Filter → Group → Sort → Limit → Result</code></p>
+</div>

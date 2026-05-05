@@ -1,0 +1,54 @@
+<h2>📗 Topic 4.4: Full Aggregation Example</h2>
+
+<h3>📌 Sample Data (students collection)</h3>
+<pre><code>[
+  { name: "A", department: "CS", marks: 80 },
+  { name: "B", department: "CS", marks: 70 },
+  { name: "C", department: "History", marks: 50 },
+  { name: "D", department: "History", marks: 90 }
+]</code></pre>
+
+<h3>📌 Full Query</h3>
+<pre><code>db.students.aggregate([
+  { $match: { marks: { $gt: 60 } } },
+  {
+    $group: {
+      _id: "$department",
+      avgMarks: { $avg: "$marks" }
+    }
+  },
+  { $sort: { avgMarks: -1 } },
+  { $limit: 2 }
+])</code></pre>
+
+<h3>📊 Step-by-Step Execution</h3>
+
+<h4>🔹 Step 1: $match (Filter)</h4>
+<p>Condition: <code>marks &gt; 60</code></p>
+<div class="code-block">
+    <p>Result:</p>
+    <p>A (80), B (70), D (90)</p>
+</div>
+
+<h4>🔹 Step 2: $group (Group by department)</h4>
+<div class="code-block">
+    <p>CS → (80 + 70) / 2 = 75</p>
+    <p>History → 90</p>
+</div>
+
+<h4>🔹 Step 3: $sort (Descending)</h4>
+<div class="code-block">
+    <p>History → 90</p>
+    <p>CS → 75</p>
+</div>
+
+<h4>🔹 Step 4: $limit</h4>
+<div class="code-block">
+    <p>Top 2 results</p>
+</div>
+
+<h3>📌 Final Output</h3>
+<pre><code>[
+  { "_id": "History", "avgMarks": 90 },
+  { "_id": "CS", "avgMarks": 75 }
+]</code></pre>

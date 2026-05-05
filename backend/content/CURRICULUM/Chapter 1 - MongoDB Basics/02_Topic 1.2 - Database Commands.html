@@ -1,0 +1,75 @@
+<h2>📗 Topic 1.2: Database Commands</h2>
+
+<h3>📌 Common MongoDB Commands</h3>
+<table class="data-table">
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>show dbs</code></td>
+            <td>Show all databases</td>
+        </tr>
+        <tr>
+            <td><code>use mydb</code></td>
+            <td>Select or create database</td>
+        </tr>
+        <tr>
+            <td><code>db</code></td>
+            <td>Show current database</td>
+        </tr>
+        <tr>
+            <td><code>show collections</code></td>
+            <td>Show collections in current DB</td>
+        </tr>
+        <tr>
+            <td><code>db.help()</code></td>
+            <td>Show available commands</td>
+        </tr>
+        <tr>
+            <td><code>db.dropDatabase()</code></td>
+            <td>Delete current database</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>📌 Examples</h3>
+<h4>🔹 Show All Databases</h4>
+<pre><code>show dbs</code></pre>
+
+<h4>🔹 Select / Create Database</h4>
+<pre><code>use schoolDB</code></pre>
+
+<h4>🔹 Check Current Database</h4>
+<pre><code>db</code></pre>
+
+<h4>🔹 Show Collections</h4>
+<pre><code>show collections</code></pre>
+
+<h4>🔹 Drop Database</h4>
+<pre><code>db.dropDatabase()</code></pre>
+
+<h3>📌 Step-by-Step Example</h3>
+<pre><code>show dbs
+use schoolDB
+db
+show collections</code></pre>
+
+<p>👉 This will:</p>
+<ol>
+    <li>Show all databases</li>
+    <li>Create/select <b>schoolDB</b></li>
+    <li>Confirm current database</li>
+    <li>Show collections</li>
+</ol>
+
+<div class="summary-card">
+    <h4>🎯 Topic 1.2 Summary</h4>
+    <ul>
+        <li>Used to manage databases</li>
+        <li>Always select database before working</li>
+    </ul>
+</div>

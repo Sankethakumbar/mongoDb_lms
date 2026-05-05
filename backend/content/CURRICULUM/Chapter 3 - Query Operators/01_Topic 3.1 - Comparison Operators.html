@@ -1,0 +1,51 @@
+<h2>📗 Topic 3.1: Comparison Operators</h2>
+
+<p>👉 Query operators are used to <b>filter data (like WHERE in SQL)</b></p>
+
+<h3>📌 Definition</h3>
+<p>Comparison operators are used to <b>compare values</b> in fields.</p>
+
+<h3>📌 Operators Table</h3>
+<table class="data-table">
+    <thead><tr><th>Operator</th><th>Meaning</th></tr></thead>
+    <tbody>
+        <tr><td><code>$gt</code></td><td>Greater than</td></tr>
+        <tr><td><code>$lt</code></td><td>Less than</td></tr>
+        <tr><td><code>$gte</code></td><td>Greater than or equal</td></tr>
+        <tr><td><code>$lte</code></td><td>Less than or equal</td></tr>
+        <tr><td><code>$eq</code></td><td>Equal</td></tr>
+        <tr><td><code>$ne</code></td><td>Not equal</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Examples</h3>
+
+<h4>🔹 Greater Than</h4>
+<pre><code>db.students.find({ marks: { $gt: 70 } })</code></pre>
+
+<h4>🔹 Less Than</h4>
+<pre><code>db.students.find({ marks: { $lt: 60 } })</code></pre>
+
+<h4>🔹 Greater Than or Equal</h4>
+<pre><code>db.students.find({ marks: { $gte: 80 } })</code></pre>
+
+<h4>🔹 Not Equal</h4>
+<pre><code>db.students.find({ grade: { $ne: "A" } })</code></pre>
+
+<h3>📌 SQL vs MongoDB</h3>
+<table class="data-table">
+    <thead><tr><th>SQL</th><th>MongoDB</th></tr></thead>
+    <tbody>
+        <tr><td>marks &gt; 70</td><td><code>{marks: {$gt: 70}}</code></td></tr>
+        <tr><td>marks &lt; 60</td><td><code>{marks: {$lt: 60}}</code></td></tr>
+        <tr><td>marks &gt;= 80</td><td><code>{marks: {$gte: 80}}</code></td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Topic 3.1 Summary</h4>
+    <ul>
+        <li>Used for numeric comparisons</li>
+        <li>Works like SQL WHERE conditions</li>
+    </ul>
+</div>

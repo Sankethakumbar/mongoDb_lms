@@ -1,0 +1,86 @@
+<h2>📗 Topic 2.1: CREATE (Insert Data)</h2>
+
+<h3>📌 MongoDB INSERT Statement</h3>
+<p>The <b>insert</b> operation is used to <b>add data to a collection</b>. The data is stored as <b>documents</b>.</p>
+
+<h3>📌 Insert Commands</h3>
+<table class="data-table">
+    <thead><tr><th>Command</th><th>Description</th></tr></thead>
+    <tbody>
+        <tr><td><code>insertOne()</code></td><td>Insert one document</td></tr>
+        <tr><td><code>insertMany()</code></td><td>Insert multiple documents</td></tr>
+        <tr><td><code>save()</code></td><td>Insert or update document</td></tr>
+        <tr><td><code>insert()</code></td><td>Deprecated ❌</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Syntax</h3>
+<pre><code>db.collection.insertOne(document)</code></pre>
+<pre><code>db.collection.insertMany([doc1, doc2])</code></pre>
+<pre><code>db.collection.save(document)</code></pre>
+
+<h3>📌 Insert One Example</h3>
+<pre><code>db.students.insertOne({
+  id: 44,
+  name: "Diana Prince",
+  age: 23,
+  grade: "C",
+  marks: 65,
+  department: "History"
+})</code></pre>
+
+<h3>📌 Insert Many Example</h3>
+<pre><code>db.students.insertMany([
+  {
+    id: 45,
+    name: "Ethan Hunt",
+    age: 20,
+    grade: "B",
+    marks: 82,
+    department: "Computer Science"
+  },
+  {
+    id: 46,
+    name: "Bruce Wayne",
+    age: 24,
+    grade: "A",
+    marks: 90,
+    department: "Business"
+  }
+])</code></pre>
+
+<h3>📌 Save Example</h3>
+<pre><code>db.students.save({
+  _id: 1,
+  name: "Tom",
+  age: 28
+})</code></pre>
+
+<h3>📌 How save() Works</h3>
+<table class="data-table">
+    <thead><tr><th>Condition</th><th>Result</th></tr></thead>
+    <tbody>
+        <tr><td><code>_id</code> exists</td><td>Updates document</td></tr>
+        <tr><td><code>_id</code> not exists</td><td>Inserts document</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 SQL vs MongoDB</h3>
+<table class="data-table">
+    <thead><tr><th>SQL</th><th>MongoDB</th></tr></thead>
+    <tbody>
+        <tr><td>INSERT INTO students</td><td><code>insertOne()</code></td></tr>
+        <tr><td>INSERT multiple rows</td><td><code>insertMany()</code></td></tr>
+        <tr><td>UPDATE using ID</td><td><code>save()</code></td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Topic 2.1 Summary</h4>
+    <ul>
+        <li>CREATE = Insert data</li>
+        <li>Use <b>insertOne() / insertMany()</b></li>
+        <li><code>save()</code> can insert or update</li>
+        <li><code>_id</code> is unique</li>
+    </ul>
+</div>

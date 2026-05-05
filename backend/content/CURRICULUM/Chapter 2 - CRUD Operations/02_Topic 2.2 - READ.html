@@ -1,0 +1,46 @@
+<h2>📗 Topic 2.2: READ (Find Data)</h2>
+
+<h3>📌 MongoDB FIND Statement</h3>
+<p>The <b>find()</b> method is used to <b>retrieve data from a collection</b>. The result is returned as a <b>cursor (result set)</b>.</p>
+
+<h3>📌 Find Commands</h3>
+<table class="data-table">
+    <thead><tr><th>Command</th><th>Description</th></tr></thead>
+    <tbody>
+        <tr><td><code>find()</code></td><td>Get all documents</td></tr>
+        <tr><td><code>find(query)</code></td><td>Get filtered data</td></tr>
+        <tr><td><code>find({}, projection)</code></td><td>Select specific fields</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Syntax</h3>
+<pre><code>db.collection.find(query, projection)</code></pre>
+
+<h3>📌 Select All Example</h3>
+<pre><code>db.students.find()</code></pre>
+
+<h3>📌 Select Specific Fields Example</h3>
+<pre><code>db.students.find({}, {name: 1, marks: 1})</code></pre>
+
+<h3>📌 Condition Example (WHERE)</h3>
+<pre><code>db.students.find({marks: {$gt: 70}})</code></pre>
+
+<h3>📌 SQL vs MongoDB</h3>
+<table class="data-table">
+    <thead><tr><th>SQL</th><th>MongoDB</th></tr></thead>
+    <tbody>
+        <tr><td>SELECT * FROM students</td><td><code>db.students.find()</code></td></tr>
+        <tr><td>SELECT name FROM students</td><td><code>db.students.find({}, {name:1})</code></td></tr>
+        <tr><td>SELECT * WHERE marks &gt; 70</td><td><code>db.students.find({marks: {$gt:70}})</code></td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Topic 2.2 Summary</h4>
+    <ul>
+        <li>READ = Retrieve data</li>
+        <li>Use <b>find()</b></li>
+        <li>Use query for conditions</li>
+        <li>Use projection for specific fields</li>
+    </ul>
+</div>

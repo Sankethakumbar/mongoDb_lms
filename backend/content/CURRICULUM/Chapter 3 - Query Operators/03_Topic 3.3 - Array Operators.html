@@ -1,0 +1,43 @@
+<h2>📗 Topic 3.3: Array Operators</h2>
+
+<h3>📌 Definition</h3>
+<p>Array operators are used when <b>fields contain arrays</b> or when matching against a list of values.</p>
+
+<h3>📌 Operators Table</h3>
+<table class="data-table">
+    <thead><tr><th>Operator</th><th>Meaning</th></tr></thead>
+    <tbody>
+        <tr><td><code>$in</code></td><td>Matches any value in array</td></tr>
+        <tr><td><code>$nin</code></td><td>Not in array</td></tr>
+        <tr><td><code>$all</code></td><td>Matches all values in array</td></tr>
+    </tbody>
+</table>
+
+<h3>📌 Examples</h3>
+
+<h4>🔹 IN Operator</h4>
+<pre><code>db.students.find({
+  department: { $in: ["CS", "History"] }
+})</code></pre>
+
+<h4>🔹 NOT IN</h4>
+<pre><code>db.students.find({
+  department: { $nin: ["Math"] }
+})</code></pre>
+
+<h3>📌 SQL vs MongoDB</h3>
+<table class="data-table">
+    <thead><tr><th>SQL</th><th>MongoDB</th></tr></thead>
+    <tbody>
+        <tr><td>IN ('CS', 'History')</td><td><code>$in</code></td></tr>
+        <tr><td>NOT IN ('Math')</td><td><code>$nin</code></td></tr>
+    </tbody>
+</table>
+
+<div class="summary-card">
+    <h4>🎯 Topic 3.3 Summary</h4>
+    <ul>
+        <li>Used for matching multiple values</li>
+        <li>Works like SQL <code>IN</code> / <code>NOT IN</code></li>
+    </ul>
+</div>
